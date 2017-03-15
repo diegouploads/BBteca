@@ -1,0 +1,15 @@
+body {
+    padding-top: 30px;
+}
+
+body>.container {
+	margin-bottom: 25px;
+}
+
+
+.fadeIn {
+-webkit-animation: fadeIn 3s ease-in-out;
+-moz-animation: fadeIn 3s ease-in-out;
+-o-animation: fadeIn 3s ease-in-out;
+animation: fadeIn 3s ease-in-out;
+}
