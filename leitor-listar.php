@@ -235,7 +235,7 @@ if(isset($_GET['q'])){
             data-whateveremail="<?php echo $resultado['email']; ?>" 
             title="Editar Leitor"><i class="fa fa-edit fa-lg"></i></a>
 
-            <a href="" data-toggle="modal" data-target="#verLivros" title="Livros"><i class="fa fa-book fa-lg"></i></a>
+            <a href="emprestimos-novo.php?idleitor=<?php echo $resultado['cod_leitor'];?>" title="Emprestimos"><i class="fa fa-book fa-lg"></i></a>
         </td>
       </tr><?php
     }

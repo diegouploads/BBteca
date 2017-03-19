@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="bbteca_ontheline@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="bbteca_ontheline">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="atividade"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sys"/>
+    <table id="8" parent="2" name="emprestimos"/>
+    <table id="9" parent="2" name="emprestimoslivros"/>
+    <table id="10" parent="2" name="leitor"/>
+    <table id="11" parent="2" name="livros"/>
+    <table id="12" parent="2" name="usuario"/>
+    <column id="13" parent="8" name="cod_controle">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="14" parent="8" name="id_leitor">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="8" name="idusuario">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="8" name="data_emprestimo">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="17" parent="8" name="status">
+      <Position>5</Position>
+      <DataType>char(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="18" parent="8" name="leitor">
+      <ColNames>id_leitor</ColNames>
+    </index>
+    <index id="19" parent="8" name="user">
+      <ColNames>idusuario</ColNames>
+    </index>
+    <key id="20" parent="8" name="PRIMARY">
+      <ColNames>cod_controle</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="21" parent="8" name="emprestimos_ibfk_2">
+      <ColNames>id_leitor</ColNames>
+      <RefSchemaName>bbteca_ontheline</RefSchemaName>
+      <RefTableName>leitor</RefTableName>
+      <RefColNames>cod_leitor</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <foreign-key id="22" parent="8" name="emprestimos_ibfk_1">
+      <ColNames>idusuario</ColNames>
+      <RefSchemaName>bbteca_ontheline</RefSchemaName>
+      <RefTableName>usuario</RefTableName>
+      <RefColNames>cod_usuario</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <column id="23" parent="9" name="idlivro">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="9" name="idemprestimo">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="9" name="multa_atraso_pg">
+      <Position>3</Position>
+      <DataType>decimal(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="9" name="qtd_emprestado">
+      <Position>4</Position>
+      <DataType>int(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="9" name="data_previa">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="9" name="data_devolvido">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="29" parent="9" name="emprestimoid">
+      <ColNames>idemprestimo</ColNames>
+    </index>
+    <index id="30" parent="9" name="livroid">
+      <ColNames>idlivro</ColNames>
+    </index>
+    <key id="31" parent="9" name="PRIMARY">
+      <ColNames>idlivro
+idemprestimo</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="32" parent="9" name="emprestimoslivros_ibfk_2">
+      <ColNames>idlivro</ColNames>
+      <RefSchemaName>bbteca_ontheline</RefSchemaName>
+      <RefTableName>livros</RefTableName>
+      <RefColNames>cod_livro</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <foreign-key id="33" parent="9" name="emprestimoslivros_ibfk_1">
+      <ColNames>idemprestimo</ColNames>
+      <RefSchemaName>bbteca_ontheline</RefSchemaName>
+      <RefTableName>emprestimos</RefTableName>
+      <RefColNames>cod_controle</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <column id="34" parent="10" name="cod_leitor">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="10" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="10" name="endereco">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="10" name="num_endereco">
+      <Position>4</Position>
+      <DataType>varchar(12)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="10" name="bairro">
+      <Position>5</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="10" name="telefone">
+      <Position>6</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="10" name="email">
+      <Position>7</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="10" name="status">
+      <Position>8</Position>
+      <DataType>char(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="42" parent="10" name="PRIMARY">
+      <ColNames>cod_leitor</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="43" parent="11" name="cod_livro">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="44" parent="11" name="titulo">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="11" name="autor">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="11" name="descricao">
+      <Position>4</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="11" name="editora">
+      <Position>5</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="11" name="edicao">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="11" name="exemplares">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="11" name="multa_atraso">
+      <Position>8</Position>
+      <DataType>decimal(15,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="11" name="status">
+      <Position>9</Position>
+      <DataType>char(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="11" name="dias_dev">
+      <Position>10</Position>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="53" parent="11" name="PRIMARY">
+      <ColNames>cod_livro</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="54" parent="12" name="cod_usuario">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="55" parent="12" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="12" name="email">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="12" name="senha">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="12" name="status">
+      <Position>5</Position>
+      <DataType>char(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="59" parent="12" name="PRIMARY">
+      <ColNames>cod_usuario</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

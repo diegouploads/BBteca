@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="jumbotron pager">
+  <div class="pager">
     <h1 class="">BBTeca - OnTheLine</h1>
 
       <br>

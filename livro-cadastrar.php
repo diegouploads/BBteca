@@ -9,6 +9,7 @@ $editora = '';
 $edicao = '';
 $exemplares = '';
 $multa_atraso = 0;
+$diasDev = 10;
 $ativo = LIVRO_DISPONIVEL;
 
 if ($_POST) {
@@ -37,9 +38,9 @@ if ($_POST) {
     if (!$msg) {
 
         $sql = "Insert Into livros
-        (titulo, autor, descricao, editora, edicao, exemplares, multa_atraso, status)
+        (titulo, autor, descricao, editora, edicao, exemplares, multa_atraso, status, dias_dev)
         Values
-        ('$titulo', '$autor', '$descricao','$editora', '$edicao', '$exemplares', '$multa_atraso', '$status')";
+        ('$titulo', '$autor', '$descricao','$editora', '$edicao', '$exemplares', '$multa_atraso', '$status', $diasDev)";
 
         $resultado = mysqli_query($con, $sql);
 

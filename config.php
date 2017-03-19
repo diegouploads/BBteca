@@ -34,5 +34,5 @@ define('LEITOR_ATIVO', '1');
 define('LIVRO_DISPONIVEL', '1');
 define('LIVRO_INDISPONIVEL', '0');
 
-define('VENDA_ABERTA', '0');
-define('VENDA_FECHADA', '1');
+define('EMPRESTIMO_ABERTO', '0');
+define('EMPRESTIMO_FECHADO', '1');
