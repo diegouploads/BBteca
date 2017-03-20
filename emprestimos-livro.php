@@ -36,13 +36,12 @@ Valores para acao
 */
 $acao = 0;
 if (isset($_GET['acao'])) {
-    $acao = (int) $_GET['acao'];
-}
-elseif (isset($_POST['acao'])) {
-    $acao = (int) $_POST['acao'];
+    $acao = (int)$_GET['acao'];
+} elseif (isset($_POST['acao'])) {
+    $acao = (int)$_POST['acao'];
 }
 if ($acao == 1) {
-    $idlivro = (int) $_POST['idlivro'];
+    $idlivro = (int)$_POST['idlivro'];
 
     $sql = "Select * From livros Where (cod_livro = $idlivro)";
     $consulta = mysqli_query($con, $sql);
@@ -50,7 +49,7 @@ if ($acao == 1) {
 
     $diasDev = $livro['dias_dev'];
     $d = date('Y-m-d');
-    $dataPrevia = date('Y/m/d', strtotime("+$diasDev days",strtotime($d)));
+    $dataPrevia = date('Y/m/d', strtotime("+$diasDev days", strtotime($d)));
     $qtd = $_POST['qtd'];
 
     $sql = "INSERT INTO emprestimoslivros
@@ -61,17 +60,16 @@ VALUES
 
     if ($inserir) {
         $l = "Livro";
-        if ($qtd>1){
+        if ($qtd > 1) {
             $l = "Livros";
         }
         $msgOk[] = "Adicionado $qtd $l " . $livro['titulo'];
-    }
-    else {
+    } else {
         $msgAviso[] = "Erro para inserir o livro no emprestimo: " . mysqli_error($con);
     }
 }
 if ($acao == 2) {
-    $idlivro = (int) $_GET['idlivro'];
+    $idlivro = (int)$_GET['idlivro'];
 
     $sql = "Delete From emprestimoslivros Where (idlivro = $idlivro)";
     $consulta = mysqli_query($con, $sql);
@@ -96,8 +94,12 @@ if ($acao == 2) {
         <h1><i class="fa fa-shopping-cart"></i> Andamento do emprestimo #<?php echo $idemprestimo; ?></h1>
     </div>
 
-    <?php if ($msgOk) { msgHtml($msgOk, 'success'); } ?>
-    <?php if ($msgAviso) { msgHtml($msgAviso, 'warning'); } ?>
+    <?php if ($msgOk) {
+        msgHtml($msgOk, 'success');
+    } ?>
+    <?php if ($msgAviso) {
+        msgHtml($msgAviso, 'warning');
+    } ?>
 
     <form role="form" method="post" action="emprestimos-livro.php">
 
@@ -120,10 +122,11 @@ if ($acao == 2) {
                                     <option value="">Selecione um livro</option>
                                     <?php
                                     $sql = 'Select * From livros Where status=' . PRODUTO_ATIVO;
-                                    $result = mysqli_query($con,$sql);
-                                    while($linha = mysqli_fetch_assoc($result)) {
+                                    $result = mysqli_query($con, $sql);
+                                    while ($linha = mysqli_fetch_assoc($result)) {
                                         ?>
-                                        <option value="<?php echo $linha['cod_livro']; ?>"><?php echo $linha['titulo'];?> - <?php echo $linha['autor'];?></option>
+                                        <option value="<?php echo $linha['cod_livro']; ?>"><?php echo $linha['titulo']; ?>
+                                            - <?php echo $linha['autor']; ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -132,7 +135,8 @@ if ($acao == 2) {
                         <div class="col-xs-12 col-sm-6 col-md-4">
                             <div class="form-group">
                                 <label for="fqtd">Quantidade</label>
-                                <input type="number" class="form-control" id="fqtd" value="0" name="qtd" min="1" required>
+                                <input type="number" class="form-control" id="fqtd" value="0" name="qtd" min="1"
+                                       required>
                             </div>
                         </div>
 
@@ -175,7 +179,7 @@ Where (E.idemprestimo = $idemprestimo)";
 
             $emprestimoTotal = 0;
 
-            while($livro = mysqli_fetch_assoc($consulta)) {
+            while ($livro = mysqli_fetch_assoc($consulta)) {
                 $emprestimoTotal = $livro['qtd_emprestado'] + $emprestimoTotal;
                 ?>
                 <tr>
@@ -183,7 +187,8 @@ Where (E.idemprestimo = $idemprestimo)";
                     <td><?php echo $livro['titulo']; ?></td>
                     <td><?php echo $livro['qtd_emprestado']; ?></td>
                     <td><?php echo date('d/m/Y', strtotime($livro['data_previa'])); ?></td>
-                    <td><a href="emprestimos-livro.php?acao=2&idlivro=<?php echo $livro['idlivro']; ?>" title="Remover livro emprestado"><i class="fa fa-times fa-lg"></i></a></td>
+                    <td><a href="emprestimos-livro.php?acao=2&idlivro=<?php echo $livro['idlivro']; ?>"
+                           title="Remover livro emprestado"><i class="fa fa-times fa-lg"></i></a></td>
                 </tr>
             <?php } ?>
             </tbody>
@@ -209,20 +214,15 @@ Where (E.idemprestimo = $idemprestimo)";
                         <p class="form-control-static"><?php echo date('d/m/Y', strtotime($emprestimo['data_emprestimo'])); ?></p>
                     </div>
 
-                    <label for="fcliente" class="col-sm-2 control-label">Total:</label>
+                    <label for="fcliente" class="col-sm-2 control-label">Cliente:</label>
                     <div class="col-sm-2">
-                        <p class="form-control-static">R$ <?php echo $emprestimoTotal; ?></p>
+                        <p class="form-control-static"><?php echo $emprestimo['leitorNome']; ?></p>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="fcliente" class="col-sm-2 control-label">Cliente:</label>
-                    <div class="col-sm-4">
-                        <p class="form-control-static"><?php echo $emprestimo['leitorNome']; ?></p>
-                    </div>
-
                     <label for="fcliente" class="col-sm-2 control-label">Atendente:</label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                         <p class="form-control-static"><?php echo $emprestimo['usuarioNome']; ?></p>
                     </div>
                 </div>

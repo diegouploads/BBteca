@@ -11,14 +11,14 @@ if (!isset($_SESSION['emprestimo'])) {
 $idemprestimo = $_SESSION['emprestimo'];
 // Validar emprestimo
 $sql = "Select cod_controle
-From emprestimos
+From emprestimos inner join emprestimoslivros on cod_controle = idemprestimo
 Where
     (cod_controle = $idemprestimo)
     And (status = " . EMPRESTIMO_ABERTO . ")";
 $consulta = mysqli_query($con, $sql);
 $emprestimo = mysqli_fetch_assoc($consulta);
 if (!$emprestimo) {
-    header('location:emprestimos-listar.php');
+    header('location:emprestimos-livro.php');
     exit;
 }
 // Finalizar emprestimo
@@ -27,4 +27,4 @@ $sql = "Update emprestimos Set status=" . EMPRESTIMO_FECHADO
 mysqli_query($con, $sql);
 unset($_SESSION['emprestimo']);
 // Redirecionar usuario para emprestimos-listar.php
-header('location:emprestimos-detalhes.php?idemprestimo=' . $idemprestimo);
+header('location:emprestimos-listar.php');
