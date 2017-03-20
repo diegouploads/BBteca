@@ -13,6 +13,7 @@ $editora = mysqli_real_escape_string($con, $_POST['editora']);
 $edicao = mysqli_real_escape_string($con, $_POST['edicao']);
 $exemplares = mysqli_real_escape_string($con, $_POST['exemplares']);
 $multa = mysqli_real_escape_string($con, $_POST['multa_atraso']);
+$dias_dev = mysqli_real_escape_string($con, $_POST['dias_dev']);
 
 $result_cursos = "UPDATE livros SET
                     titulo = '$titulo',
@@ -21,11 +22,12 @@ $result_cursos = "UPDATE livros SET
                     editora = '$editora',
                     edicao = '$edicao',
                     exemplares = '$exemplares',
-                    multa_atraso = '$multa'
+                    multa_atraso = '$multa',
+                    dias_dev = '$dias_dev'
                     WHERE cod_livro = '$cod_livro'";
 $resultado_cursos = mysqli_query($con, $result_cursos);
 
-//echo $cod_livro . " - " . $titulo . " - " . $autor . " - " . $descricao . " - " . $editora . " - " . $edicao . " - " . $exemplares . " - " . $multa;
+//echo $cod_livro . " - " . $titulo . " - " . $autor . " - " . $descricao . " - " . $editora . " - " . $edicao . " - " . $exemplares . " - " . $multa . " - " . $dias_dev;
 
 ?>
 

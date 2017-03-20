@@ -42,21 +42,21 @@ if(isset($_GET['q'])){
               <input type="hidden" name="cod_leitor" id="cod_leitor">
 
               <div class="form-group">
-                <label for="recipient-name" class="control-label">Nome:</label>
+                <label for="fnome"><i class="fa fa-pencil-square-o"></i> Nome</label>
                 <input type="text" class="form-control" id="recipient-name" name="nome">
               </div>
 
               <div class="row">
                   <div class="form-group col-xs-8">
                       <div class="form-group">
-                          <label for="recipient-endereco"><i class="fa fa-pencil-square-o"></i> Endereço</label>
+                          <label for="recipient-endereco"><i class="fa fa-home"></i> Endereço</label>
                           <input type="text" class="form-control" id="recipient-endereco" name="endereco">
                       </div> 
                   </div>
 
                   <div class="form-group col-xs-4">
                       <div class="form-group">
-                          <label for="recipient-num_endereco"><i class="fa fa-pencil-square-o"></i> Número</label>
+                          <label for="recipient-num_endereco"><i class="fa fa-map-marker"></i> Número</label>
                           <input type="text" class="form-control" id="recipient-num_endereco" name="numero">
                       </div>         
                   </div>
@@ -65,21 +65,21 @@ if(isset($_GET['q'])){
               <div class="row">
                   <div class="form-group col-xs-8">
                       <div class="form-group">
-                          <label for="recipient-bairro"><i class="fa fa-pencil-square-o"></i> Bairro</label>
+                          <label for="recipient-bairro"><i class="fa fa-map-marker"></i> Bairro</label>
                           <input type="text" class="form-control" id="recipient-bairro" name="bairro">
                       </div> 
                   </div>
 
                   <div class="form-group col-xs-4">
                       <div class="form-group">
-                          <label for="recipient-telefone"><i class="fa fa-pencil-square-o"></i> Telefone</label>
+                          <label for="recipient-telefone"><i class="fa fa-phone"></i> Telefone</label>
                           <input type="text" class="form-control" id="recipient-telefone" name="telefone">
                       </div>         
                   </div>
               </div> 
 
               <div class="form-group">
-                <label for="message-text" class="control-label">e-mail:</label>
+                <label for="message-text" class="control-label"><i class="fa fa-envelope"></i> E-mail:</label>
                 <input type="text" class="form-control" id="email" name="email">
               </div>
 
@@ -303,7 +303,7 @@ if(isset($_GET['q'])){
 
         <!-- Cabeçalho -->
         <div class="modal-header" align="center">
-          <h2>Cadastrar Leitor</h2>
+          <h2><i class="fa fa-user"></i> Cadastrar Leitor</h2>
         </div>
 
         <!-- Corpo -->

@@ -33,7 +33,7 @@ if(isset($_GET['q'])){
 
         <!-- Cabeçalho -->
         <div class="modal-header" align="center">
-          <h2>Editar Usuário</h2>
+          <h2><i class="fa fa-user"></i> Editar Usuário</h2>
         </div>
 
         <!-- Corpo -->
@@ -42,12 +42,12 @@ if(isset($_GET['q'])){
               <input type="hidden" name="cod_usuario" id="cod_usuario">
 
               <div class="form-group">
-                <label for="recipient-name" class="control-label">Nome:</label>
+                <label for="recipient-name" class="control-label"><i class="fa fa-pencil-square-o"></i> Nome:</label>
                 <input type="text" class="form-control" id="recipient-name" name="nome">
               </div>
 
               <div class="form-group">
-                <label for="message-text" class="control-label">e-mail:</label>
+                <label for="message-text" class="control-label"><i class="fa fa-envelope"></i> E-mail:</label>
                 <input type="text" class="form-control" id="email" name="email">
               </div>
 
@@ -74,7 +74,7 @@ if(isset($_GET['q'])){
 
         <!-- Cabeçalho -->
         <div class="modal-header" align="center">
-          <h2>Alterar Senha</h2>
+          <h2><i class="fa fa-lock"></i> Alterar Senha</h2>
         </div>
 
         <!-- Corpo -->
@@ -305,7 +305,7 @@ if(isset($_GET['q'])){
 
         <!-- Cabeçalho -->
         <div class="modal-header" align="center">
-          <h2>Cadastrar Usuário</h2>
+          <h2><i class="fa fa-user"></i> Cadastrar Usuário</h2>
         </div>
 
         <!-- Corpo -->

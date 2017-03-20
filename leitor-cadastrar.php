@@ -75,14 +75,14 @@ if ($_POST) {
     <div class="row">
         <div class="form-group col-xs-8">
             <div class="form-group">
-                <label for="fendereco"><i class="fa fa-pencil-square-o"></i> Endereço</label>
+                <label for="fendereco"><i class="fa fa-home"></i> Endereço</label>
                 <input type="text" class="form-control" id="fendereco" name="endereco" placeholder="Nome da Rua/Avenida/Travessa/etc" value="<?php echo $endereco; ?>" required>
             </div> 
         </div>
 
         <div class="form-group col-xs-4">
             <div class="form-group">
-                <label for="fnumero"><i class="fa fa-pencil-square-o"></i> Número</label>
+                <label for="fnumero"><i class="fa fa-map-marker"></i> Número</label>
                 <input type="text" class="form-control" id="fnumero" name="num_endereco" placeholder="Número" value="<?php echo $num_endereco; ?>" required>
             </div>         
         </div>
@@ -91,14 +91,14 @@ if ($_POST) {
     <div class="row">
         <div class="form-group col-xs-5">
             <div class="form-group">
-                <label for="fbairro"><i class="fa fa-pencil-square-o"></i> Bairro</label>
+                <label for="fbairro"><i class="fa fa-map-marker"></i> Bairro</label>
                 <input type="text" class="form-control" id="fbairro" name="bairro" placeholder="Bairro" value="<?php echo $bairro; ?>" required>
             </div> 
         </div>
 
         <div class="form-group col-xs-7">
             <div class="form-group">
-                <label for="ftelefone"><i class="fa fa-pencil-square-o"></i> Telefone</label>
+                <label for="ftelefone"><i class="fa fa-phone"></i> Telefone</label>
                 <input type="text" class="form-control" id="ftelefone" name="telefone" placeholder="(  )    -    " value="<?php echo $telefone; ?>" required>
             </div>
         </div>
