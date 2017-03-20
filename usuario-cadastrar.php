@@ -46,7 +46,7 @@ if ($_POST) {
     if (!$msg) {
         $senha = $senha;
 
-        $sql = "Insert Into usuario (nome,email,senha,status) Values ('$nome', '$email', '$senha', $status)";
+        $sql = "Insert Into usuario (nome,email,senha,status) Values ('$nome', '$email', '$senha', '$status')";
 
         $resultado = mysqli_query($con, $sql);
 

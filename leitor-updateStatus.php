@@ -9,7 +9,7 @@ $cod_leitor = mysqli_real_escape_string($con, $_POST['cod_leitor']);
 $nome = mysqli_real_escape_string($con, $_POST['nome']);
 $status = mysqli_real_escape_string($con, $_POST['status']);
 
-$result_cursos = "UPDATE leitor SET status = '$status' WHERE cod_leitor = '$cod_leitor'";
+$result_cursos = "UPDATE leitor SET status = '$status' WHERE cod_leitor = $cod_leitor";
 $resultado_cursos = mysqli_query($con, $result_cursos);
 
 ?>
@@ -23,14 +23,14 @@ $resultado_cursos = mysqli_query($con, $result_cursos);
 	<body> <?php
 		if(mysqli_affected_rows($con) != 0){
 			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/bbteca_ontheline/leitor-listar.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=leitor-listar.php'>
 				<script type=\"text/javascript\">
 					alert(\"Status do leitor atualizada!\");
 				</script>
 			";	
 		}else{
 			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/bbteca_ontheline/leitor-listar.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=leitor-listar.php'>
 				<script type=\"text/javascript\">
 					alert(\"Erro ao atualizar Status do leitor!\");
 				</script>

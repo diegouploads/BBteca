@@ -41,7 +41,7 @@ if ($_POST) {
 		$sql = "Insert Into livros
 		(titulo, autor, descricao, editora, edicao, exemplares, multa_atraso, status, dias_dev)
 		Values
-		('$titulo', '$autor', '$descricao','$editora', '$edicao', '$exemplares', '$multa_atraso', '$status', $diasDev)";
+		('$titulo', '$autor', '$descricao','$editora', '$edicao', '$exemplares', '$multa_atraso', '$status', $dias_dev)";
 
 		$resultado = mysqli_query($con, $sql);
 
@@ -64,7 +64,7 @@ if ($_POST) {
 
 	<div class="form-group">
 		<label for="fnome"><i class="fa fa-pencil-square-o"></i> Título do Livro</label>
-		<input type="text" class="form-control" id="fnome" name="nome" placeholder="Nome completo do Título" value="<?php echo $titulo; ?>" required>
+		<input type="text" class="form-control" id="fnome" name="titulo" placeholder="Nome completo do Título" value="<?php echo $titulo; ?>" required>
 	</div>
 
 	<div class="form-group">

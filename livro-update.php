@@ -23,8 +23,8 @@ $result_cursos = "UPDATE livros SET
                     edicao = '$edicao',
                     exemplares = '$exemplares',
                     multa_atraso = '$multa',
-                    dias_dev = '$dias_dev'
-                    WHERE cod_livro = '$cod_livro'";
+                    dias_dev = $dias_dev
+                    WHERE cod_livro = $cod_livro";
 $resultado_cursos = mysqli_query($con, $result_cursos);
 
 //echo $cod_livro . " - " . $titulo . " - " . $autor . " - " . $descricao . " - " . $editora . " - " . $edicao . " - " . $exemplares . " - " . $multa . " - " . $dias_dev;
@@ -40,14 +40,14 @@ $resultado_cursos = mysqli_query($con, $result_cursos);
     <body> <?php
         if(mysqli_affected_rows($con) != 0){
             echo "
-                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/bbteca_ontheline/livro-listar.php'>
+                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=livro-listar.php'>
                 <script type=\"text/javascript\">
                     alert(\"Informações do livro atualizadas com sucesso!\");
                 </script>
             ";  
         }else{
             echo "
-                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/bbteca_ontheline/livro-listar.php'>
+                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=livro-listar.php'>
                 <script type=\"text/javascript\">
                     alert(\"Erro ao atualizar informações do livro!\");
                 </script>

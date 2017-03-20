@@ -40,7 +40,7 @@ if(isset($_GET['q'])){
 
 					<!-- Corpo -->
 					<div class="modal-body">
-						<form method="post" action="http://localhost/bbteca_ontheline/livro-update.php">
+						<form method="post" action="livro-update.php">
 							<input type="hidden" name="cod_livro" id="cod_livro">
 
 							<div class="form-group">
@@ -144,7 +144,9 @@ if(isset($_GET['q'])){
 						<th>Autor</th>
 						<th>Editora</th>
 						<th>Num.Edição</th>
-						<th>Dias Disponiveis</th>
+						<th>Total</th>
+						<th>Disponivel</th>
+						<th>Prazo max.</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -175,7 +177,9 @@ if(isset($_GET['q'])){
 							<td><?php echo $resultado['autor'];?></td>
 							<td><?php echo $resultado['editora'];?></td>
 							<td><?php echo $resultado['edicao'];?></td>
-							<td><?php echo $resultado['dias_dev'];?></td>
+							<td><?php echo $resultado['exemplares'];?></td>
+							<td><?php echo "desenvolver"; ?></td>
+							<td><?php echo $resultado['dias_dev']." dias";?></td>
 
 							<td>
 								<a data-toggle="modal" data-target="#editarLivro"

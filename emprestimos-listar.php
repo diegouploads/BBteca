@@ -46,7 +46,8 @@ if(isset($_GET['q'])){
                 <th>Situação</th>
                 <th>Leitor</th>
                 <th>Data do Emprestimo</th>
-                <th>Quantidade Livros</th>
+                <th>Total emprestado</th>
+				<th>Total Devolvido</th>
                 <th></th>
             </tr>
             </thead>
@@ -91,10 +92,15 @@ Inner Join usuario u
                                 $consultasql = mysqli_query($con, $sqllivros);
                                 $d = date('Y-m-d');
                                 $atrasado = 0;
+								$devolvido = 0;
                                 while ($livrosEmprestado = mysqli_fetch_assoc($consultasql)) {
                                     if ($livrosEmprestado['data_previa'] <= $d) {
                                         $atrasado++;
-                                    }
+                                    } else {
+										if($livrosEmprestado['data_devolvido'] != NULL){
+											$devolvido++;
+										}
+									}
                                 }
                                 if (mysqli_num_rows($consultasql) == 0) { ?>
                                     <span class="label label-default">devolvidos</span> <?php
@@ -113,6 +119,7 @@ Inner Join usuario u
                         <td><?php echo $resultado['leitorNome']; ?></td>
                         <td><?php echo date('d/m/Y', $emprestimoDataE); ?></td>
                         <td><?php echo $resultado['livrosTotal']; ?></td>
+						<td><?php echo $devolvido; ?></td>
                         <td>
                             <?php if ($resultado['emprestimoStatus'] == EMPRESTIMO_FECHADO) { ?>
                                 <a href="emprestimos-detalhes.php?idemprestimo=<?php echo $resultado['cod_controle']; ?>"

@@ -38,7 +38,7 @@ if(isset($_GET['q'])){
 
         <!-- Corpo -->
         <div class="modal-body">
-            <form method="post" action="http://localhost/bbteca_ontheline/usuario-update.php">
+            <form method="post" action="usuario-update.php">
               <input type="hidden" name="cod_usuario" id="cod_usuario">
 
               <div class="form-group">
@@ -79,7 +79,7 @@ if(isset($_GET['q'])){
 
         <!-- Corpo -->
         <div class="modal-body">
-            <form method="post" action="http://localhost/bbteca_ontheline/usuario-updateSenha.php">
+            <form method="post" action="usuario-updateSenha.php">
               <input type="hidden" name="cod_usuario" id="cod_usuario">
 
               <div class="form-group">
@@ -119,7 +119,7 @@ if(isset($_GET['q'])){
 
         <!-- Corpo -->
         <div class="modal-body">
-            <form method="post" action="http://localhost/bbteca_ontheline/usuario-updateStatus.php">
+            <form method="post" action="usuario-updateStatus.php">
               <input type="hidden" name="cod_usuario" id="cod_usuario">
 
               <div class="form-group">

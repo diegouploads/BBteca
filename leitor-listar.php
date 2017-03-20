@@ -38,7 +38,7 @@ if(isset($_GET['q'])){
 
         <!-- Corpo -->
         <div class="modal-body">
-            <form method="post" action="http://localhost/bbteca_ontheline/leitor-update.php">
+            <form method="post" action="http:leitor-update.php">
               <input type="hidden" name="cod_leitor" id="cod_leitor">
 
               <div class="form-group">
@@ -57,7 +57,7 @@ if(isset($_GET['q'])){
                   <div class="form-group col-xs-4">
                       <div class="form-group">
                           <label for="recipient-num_endereco"><i class="fa fa-map-marker"></i> Número</label>
-                          <input type="text" class="form-control" id="recipient-num_endereco" name="numero">
+                          <input type="text" class="form-control" id="recipient-num_endereco" name="num_endereco">
                       </div>         
                   </div>
               </div> 
@@ -111,7 +111,7 @@ if(isset($_GET['q'])){
 
         <!-- Corpo -->
         <div class="modal-body">
-            <form method="post" action="http://localhost/bbteca_ontheline/leitor-updateStatus.php">
+            <form method="post" action="http:leitor-updateStatus.php">
               <input type="hidden" name="cod_leitor" id="cod_leitor">
 
               <div class="form-group">

@@ -19,7 +19,7 @@ $result_cursos = "UPDATE leitor SET
 				num_endereco = '$num_endereco',
 				bairro = '$bairro',
 				telefone = '$telefone',
-				email = '$email' WHERE cod_leitor = '$cod_leitor'";
+				email = '$email' WHERE cod_leitor = $cod_leitor";
 				
 $resultado_cursos = mysqli_query($con, $result_cursos);
 
@@ -34,14 +34,14 @@ $resultado_cursos = mysqli_query($con, $result_cursos);
 	<body> <?php
 		if(mysqli_affected_rows($con) != 0){
 			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/bbteca_ontheline/leitor-listar.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=leitor-listar.php'>
 				<script type=\"text/javascript\">
 					alert(\"Leitor alterado com sucesso!\");
 				</script>
 			";	
 		}else{
 			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/bbteca_ontheline/leitor-listar.php'>
+				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http:leitor-listar.php'>
 				<script type=\"text/javascript\">
 					alert(\"Erro ao atualizar Leitor!\");
 				</script>
